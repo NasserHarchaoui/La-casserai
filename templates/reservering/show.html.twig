@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservering{% endblock %}
+
+{% block body %}
+    <h1>Reservering</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reservering.id }}</td>
+            </tr>
+            <tr>
+                <th>Aankomstdatum</th>
+                <td>{{ reservering.aankomstdatum ? reservering.aankomstdatum|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vertrekdatum</th>
+                <td>{{ reservering.vertrekdatum ? reservering.vertrekdatum|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Kinderen</th>
+                <td>{{ reservering.kinderen }}</td>
+            </tr>
+            <tr>
+                <th>Volwassenen</th>
+                <td>{{ reservering.volwassenen }}</td>
+            </tr>
+            <tr>
+                <th>Dave</th>
+                <td>{{ reservering.dave }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservering_index') }}">back to list</a>
+
+    <a href="{{ path('reservering_edit', {'id': reservering.id}) }}">edit</a>
+
+    {{ include('reservering/_delete_form.html.twig') }}
+{% endblock %}

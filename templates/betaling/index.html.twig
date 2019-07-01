@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Betaling index{% endblock %}
+
+{% block body %}
+    <h1>Betaling index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Betaalmethode</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for betaling in betalings %}
+            <tr>
+                <td>{{ betaling.id }}</td>
+                <td>{{ betaling.betaalmethode }}</td>
+                <td>
+                    <a href="{{ path('betaling_show', {'id': betaling.id}) }}">show</a>
+                    <a href="{{ path('betaling_edit', {'id': betaling.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('betaling_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kamer index{% endblock %}
+
+{% block body %}
+    <h1>Kamer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kamerbeschrijving</th>
+                <th>Kamerprijs</th>
+                <th>Personen</th>
+                <th>Hond</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for kamer in kamers %}
+            <tr>
+                <td>{{ kamer.id }}</td>
+                <td>{{ kamer.kamerbeschrijving }}</td>
+                <td>{{ kamer.kamerprijs }}</td>
+                <td>{{ kamer.personen }}</td>
+                <td>{{ kamer.hond }}</td>
+                <td>
+                    <a href="{{ path('kamer_show', {'id': kamer.id}) }}">show</a>
+                    <a href="{{ path('kamer_edit', {'id': kamer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('kamer_new') }}">Create new</a>
+{% endblock %}
