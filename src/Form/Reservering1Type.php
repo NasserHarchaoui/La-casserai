@@ -16,7 +16,6 @@ class Reservering1Type extends AbstractType
             ->add('vertrekdatum')
             ->add('kinderen')
             ->add('volwassenen')
-            ->add('dave')
             ->add('accountnummer')
             ->add('kamernummer')
         ;

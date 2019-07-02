@@ -54,10 +54,6 @@ class Reservering
      */
     private $kamernummer;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-
 
     public function __construct()
     {

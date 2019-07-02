@@ -162,4 +162,9 @@ class Kamer
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getKamerbeschrijving().' - '.$this->getId();
+    }
 }
